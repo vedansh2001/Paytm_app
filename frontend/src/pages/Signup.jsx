@@ -6,6 +6,7 @@ import { InputBox } from "../components/InputBox"
 import { SubHeading } from "../components/SubHeading"
 import axios from "axios";
 
+
 export const Signup = () => {
     const [firstName, setFirstName] = useState("");
     const [lastName, setLastName] = useState("");
@@ -19,16 +20,16 @@ export const Signup = () => {
         <SubHeading label={"Enter your infromation to create an account"} />
         <InputBox onChange={e => {
             setFirstName(e.target.value);
-        }} placeholder="John" label={"First Name"} />
+        }} placeholder="salmon" label={"First Name"} />
         <InputBox onChange={e => {
             setLastName(e.target.value);
-        }} placeholder="Doe" label={"Last Name"} />
+        }} placeholder="boi" label={"Last Name"} />
         <InputBox onChange={e => {
             setUsername(e.target.value);
-        }} placeholder="harkirat@gmail.com" label={"Email"} />
+        }} placeholder="name@gmail.com" label={"Email"} />
         <InputBox onChange={e => {
             setPassword(e.target.value);
-        }} placeholder="123456" label={"Password"} />
+        }} placeholder="password" label={"Password"} />
         <div className="pt-4">
           <Button onClick={async () => {
             const response = await axios.post("http://localhost:3000/api/v1/user/signup", {
@@ -37,7 +38,9 @@ export const Signup = () => {
                 lastName,
                 password
             });
+            
             localStorage.setItem("token", response.data.token)
+            alert("signed in");
           }} label={"Sign up"} />
         </div>
         <BottomWarning label={"Already have an account?"} buttonText={"Sign in"} to={"/signin"} />
