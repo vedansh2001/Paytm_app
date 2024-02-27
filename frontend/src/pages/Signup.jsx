@@ -40,7 +40,7 @@ export const Signup = () => {
             });
             
             localStorage.setItem("token", response.data.token)
-            alert("signed in");
+            alert("Account Created");
           }} label={"Sign up"} />
         </div>
         <BottomWarning label={"Already have an account?"} buttonText={"Sign in"} to={"/signin"} />
